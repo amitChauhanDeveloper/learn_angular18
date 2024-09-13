@@ -62,7 +62,8 @@
               "buildTarget": "angular_18_tutorial:build:production"
             },
             "development": {
-              "buildTarget": "angular_18_tutorial:build:development"
+              "buildTarget": "angular_18_tutorial:build:development",
+              "port": 3001
             }
           },
           "defaultConfiguration": "development"
@@ -92,5 +93,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "90f7f00b-5770-46fb-9836-5a87f2008437"
   }
 }

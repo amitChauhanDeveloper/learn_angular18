@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col-4">On way - from .ts to .html</div>
+  <div class="col-4"></div>
+  <div class="col-4"></div>
+</div>
+
+<div class="row">
+  <div class="col-4">
+    <div class="row">
+      <div class="col-4 bg-success">
+        interpolation
+        <h4>{{courseName}}</h4>
+        <div>{{inputType}}</div>
+        <input type="text" value="{{courseName}}" placeholder="Enter text">
+        <input type="{{inputType}}">
+      </div>
+      <div class="col-4">
+        Property Binding
+        <div [class]="myClassName">Danger</div>
+        <input type="text" [value]="courseName" />
+        <input [type]="inputType">
+      </div>
+      <div class="col-4">
+        event binding
+        <div>
+          <button class="btn btn-success" (click)="showAlert('Welcome angular 18')">Show Welcome</button>
+          <span (click)="showAlert('This is span')">click me</span>
+        </div>
+        <div>
+          <br>
+          <button class="btn btn-success" (click)="changeCourseName()">Change Course</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6">
+    two way data binding
+    <!-- only work on input element -->
+     <br>
+   <input type="text" [(ngModel)]="courseName"/>-{{courseName}}
+   <br>
+   <input type="checkbox" [(ngModel)]="flag"/>
+   <br>
+   <select [(ngModel)]="stateName">
+      <option value="">Select State</option>
+      <option value="Gujarat">Gujarat</option>
+      <option value="Uttar Pradesh">Uttar Pradesh</option>
+      <option value="Bihar">Bihar</option>
+   </select>
+   <div class="col-6"></div>
+   <b><h3>Using signal</h3></b>
+   <h2>{{firstName()}}</h2>
+  </div>
+</div>
