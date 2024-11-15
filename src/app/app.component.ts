@@ -4,11 +4,13 @@ import { AddEmployeeComponent } from './component/add-employee/add-employee.comp
 import { EmployeeListComponent } from './component/employee-list/employee-list.component';
 import { DataBindingComponent } from './component/data-binding/data-binding.component';
 import { StructuralDirComponent } from './component/directive/structural-dir/structural-dir.component';
+import { AttributeDirComponent } from "./component/directive/attribute-dir/attribute-dir.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,AddEmployeeComponent,EmployeeListComponent,DataBindingComponent,StructuralDirComponent],
+  imports: [RouterOutlet, AddEmployeeComponent, EmployeeListComponent, 
+    DataBindingComponent, StructuralDirComponent, AttributeDirComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

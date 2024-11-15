@@ -21,14 +21,23 @@ export class AttributeDirComponent {
   cityArray: string[] = ['Select City','Ahmedabad','Gandhinagar','Kalol','Mahesana']
 
   studentList: any[]=[
-    {studentId: 1, name: 'Amit', city: 'Kalol', isActive: true},
-    {studentId: 2, name: 'Ajay', city: 'Mahesana', isActive: false},
-    {studentId: 3, name: 'Naitik', city: 'Ahmedabad', isActive: true},
-    {studentId: 4, name: 'Mohan', city: 'Chandkheda', isActive: false},
-    {studentId: 5, name: 'Sanjay', city: 'Vadodara', isActive: false},
-    {studentId: 6, name: 'Manan', city: 'Surat', isActive: false}
+    {studentId: 1, totalMark: 80, gender:'male', name: 'Amit', city: 'Kalol', isActive: true},
+    {studentId: 2, totalMark: 75, gender:'female', name: 'Ajay', city: 'Mahesana', isActive: false},
+    {studentId: 3, totalMark: 53, gender:'male', name: 'Naitik', city: 'Ahmedabad', isActive: true},
+    {studentId: 4, totalMark: 45, gender:'male', name: 'Mohan', city: 'Chandkheda', isActive: false},
+    {studentId: 5, totalMark: 95, gender:'female', name: 'Sanjay', city: 'Vadodara', isActive: false},
+    {studentId: 6, totalMark: 70, gender:'male', name: 'Manan', city: 'Surat', isActive: false}
   ]
 
+  customStyle: any = {
+    'color': 'white',
+    'background-color': 'red',
+    'width': '200px',
+    'height': '200px',
+    'border-radius': '50%',
+    'text-align': 'center',
+  };
+  
   showDiv1(){
     this.isDiv1Visable = true;
   }

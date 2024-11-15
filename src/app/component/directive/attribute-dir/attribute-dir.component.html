@@ -23,20 +23,20 @@
     </div>
   </div>
   <div class="col-3">
-    <div *ngIf="num1 == num2" class="bg-info p-3 text-center">
+      <div class="bg-info p-3 text-center" [ngClass]="num1==num2 ? 'bg-secondary text-white': 'bg-danger text-primary'">
       <h4>Div-3</h4>
     </div>
   </div>
   <div class="col-3">
-    <div *ngIf="seletedState == 'Bihar'" class="bg-warning p-3 text-center">
+    <div class="p-3 text-center" [ngClass]="isActive ? 'bg-warning' : 'bg-secondary' ">
       <h4>Div-4</h4>
     </div>
   </div>
 
   <div class="row pt-3">
     <div class="col-3 text-center">
-      <button class="btn btn-warning" (click)="hideDiv1()">Hide</button>
-      <button class="btn btn-primary mx-2" (click)="showDiv1()">Show</button>
+      <button class="btn btn-danger" (click)="hideDiv1()">Add Red</button>
+      <button class="btn btn-primary mx-2" (click)="showDiv1()">Add Blue</button>
     </div>
     <div class="col-3 text-center">
       <button class="btn btn-success" (click)="toggleDiv2()">Hide/Show</button>
@@ -82,7 +82,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row pt-4">
     <div class="col-5">
       <b>*ngFor and *ngIf used studentList object iltrate student table format</b>
       <table class="table table-bordered">
@@ -90,22 +90,36 @@
           <tr>
             <th>Sr No</th>
             <th>Name</th>
+            <th>Gender</th>
             <th>City</th>
             <th>Status</th>
+            <th>Total Mark</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let student of studentList; let srNo = index">
             <td>{{srNo +1}}</td>
             <td>{{student.name}}</td>
+            <td>{{student.gender}}</td>
             <td>{{student.city}}</td>
+            <td [ngStyle]="{'background-color' : student.isActive ? 'yellow' : 'grey'}">
+              <span> {{student.isActive ? 'Active' : 'De-Active'}}</span>
+            </td>
             <td>
-              <span *ngIf="student.isActive">Active</span>
-              <span *ngIf="!student.isActive">De-Active</span>
+              <div class="progress">
+                <div class="progress-bar" [ngStyle]="{'width': student.totalMark + '%'}">{{student.totalMark + ' %'}}</div>
+              </div>
             </td>
           </tr>
         </tbody>
       </table>
+    
     </div>
-  </div>
+    <div class="col-5">
 
+      <div [ngStyle]="customStyle">
+        Div Test
+      </div>
+    </div>
+
+  </div>
