@@ -4,7 +4,7 @@ import { DataBindingComponent } from './component/data-binding/data-binding.comp
 import { EmployeeListComponent } from './component/employee-list/employee-list.component';
 import { StructuralDirComponent } from './component/directive/structural-dir/structural-dir.component';
 import { AttributeDirComponent } from './component/directive/attribute-dir/attribute-dir.component';
-import { ControlComponent } from './control/control.component';
+import { ControlComponent } from './component/control/control.component';
 
 export const routes: Routes = [
   {
