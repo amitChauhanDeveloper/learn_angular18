@@ -1,0 +1,95 @@
+<!-- home.component.html -->
+
+<div class="home-content">
+  <h1>Welcome to the Home Page</h1>
+  <p>This is a simple Angular home page with a header and footer. Below are some interesting facts about Angular!</p>
+
+  <section class="facts">
+    <h2>Why Angular?</h2>
+    <p>Angular is a powerful and popular front-end framework developed and maintained by Google. It is used to build dynamic, single-page web applications with rich functionality. Here are some key features of Angular:</p>
+
+    <ul>
+      <li><strong>Two-way data binding:</strong> Angular allows you to sync data between the model and view automatically.</li>
+      <li><strong>Component-based architecture:</strong> Angular's component-based approach helps create reusable UI components, making code easy to manage and scale.</li>
+      <li><strong>Directives:</strong> Angular provides built-in directives (like <code>ngIf</code>, <code>ngFor</code>) to extend HTML capabilities.</li>
+      <li><strong>Dependency Injection (DI):</strong> Angular's DI system improves code modularity, making it easier to manage services and business logic.</li>
+      <li><strong>RxJS:</strong> Angular leverages RxJS for handling asynchronous programming and event-based data streams.</li>
+    </ul>
+
+    <h2>Angular Features</h2>
+    <div class="features">
+      <div class="feature-box">
+        <h3>Modular Development</h3>
+        <p>Angular’s modularity helps developers manage different functionalities as independent units of code, enhancing scalability and maintainability.</p>
+      </div>
+      <div class="feature-box">
+        <h3>Cross-platform Development</h3>
+        <p>With Angular, you can build applications for web, mobile, and desktop from a single codebase.</p>
+      </div>
+      <div class="feature-box">
+        <h3>TypeScript Integration</h3>
+        <p>Angular is built with TypeScript, offering strong typing, interfaces, and modern JavaScript features that improve the development experience.</p>
+      </div>
+    </div>
+
+    <h2>Angular Lifecycle Hooks</h2>
+    <p>Angular components have lifecycle hooks that allow developers to tap into specific moments in a component's lifecycle, such as initialization, change detection, and destruction.</p>
+
+    <ul>
+      <li><strong>ngOnInit:</strong> Called after the component's data-bound properties are initialized.</li>
+      <li><strong>ngOnChanges:</strong> Invoked whenever there are changes to input-bound properties.</li>
+      <li><strong>ngOnDestroy:</strong> Called just before a component is destroyed.</li>
+      <li><strong>ngDoCheck:</strong> Allows you to check and respond to changes that Angular can't or doesn't detect.</li>
+    </ul>
+
+    <h2>Angular vs Other Frameworks</h2>
+    <p>How does Angular compare to other popular frameworks like React or Vue?</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Angular</th>
+          <th>React</th>
+          <th>Vue</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Data Binding</td>
+          <td>Two-way binding</td>
+          <td>One-way binding</td>
+          <td>Two-way binding</td>
+        </tr>
+        <tr>
+          <td>State Management</td>
+          <td>Services + Store</td>
+          <td>React Context + Hooks</td>
+          <td>Vuex</td>
+        </tr>
+        <tr>
+          <td>Learning Curve</td>
+          <td>Steep</td>
+          <td>Moderate</td>
+          <td>Easy</td>
+        </tr>
+        <tr>
+          <td>Community Support</td>
+          <td>Strong (Google-backed)</td>
+          <td>Very Strong (Facebook-backed)</td>
+          <td>Growing</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="angular-interactive">
+    <h2>Interactive Angular Demo</h2>
+    <p>Try the following interactive feature to see Angular in action:</p>
+    <label for="colorPicker">Choose a color:</label>
+    <input type="color" id="colorPicker" [(ngModel)]="selectedColor">
+    <div class="color-box" [style.background]="selectedColor">
+      The selected color will appear here!
+    </div>
+  </section>
+</div>
+

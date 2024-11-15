@@ -5,8 +5,13 @@ import { EmployeeListComponent } from './component/employee-list/employee-list.c
 import { StructuralDirComponent } from './component/directive/structural-dir/structural-dir.component';
 import { AttributeDirComponent } from './component/directive/attribute-dir/attribute-dir.component';
 import { ControlComponent } from './component/control/control.component';
+import { HomeComponent } from './component/home/home.component';
 
 export const routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent
+  },
   {
     path: 'add-employee',
     component: AddEmployeeComponent
