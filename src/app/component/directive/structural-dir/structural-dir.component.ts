@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-structural-dir',
@@ -47,6 +48,15 @@ export class StructuralDirComponent {
     // }else{
     //   this.isDiv2Visable = true;
     // }
+  }
+
+  constructor(private router: Router){
+
+  } //dependency injection
+
+  navigateToAttributeDir(){
+    this.router.navigateByUrl("attribute-dir")
+
   }
 
 }
