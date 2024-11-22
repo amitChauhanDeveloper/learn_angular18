@@ -3,12 +3,45 @@
     <button class="btn btn-success" (click)="getAllProduct()"> Get Products List</button>
   </div>
 
-  <div class="col-3">
-    <select class="from-select">
-      @for (item of productList; track $index) {
-        <option>{{item.name}}</option>
-      }
-    </select>
-  </div>
+  <div class="row">
+    <div class="col-2">
+      <button class="btn btn-success"> Create Product</button>
+    </div>
+
+    <div class="row">
+      <div class="col-2">
+        <button class="btn btn-success"> Update Product</button>
+      </div>
+
+      <div class="row">
+        <div class="col-2">
+          <button class="btn btn-success"> Delete Product</button>
+        </div>
+
+  <div class="row">
+    <div class="col-6">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Product Id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>SkuCode</th>
+            <th>Quantity</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of productList; let id = index">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.skuCode}}</td>
+            <td>{{item.quantity}}</td>
+            <td>{{item.price}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
 </div>
