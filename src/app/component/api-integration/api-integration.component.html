@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-2">
+    <button class="btn btn-success" (click)="getAllProduct()"> Get Products List</button>
+  </div>
+
+  <div class="col-3">
+    <select class="from-select">
+      @for (item of productList; track $index) {
+        <option>{{item.name}}</option>
+      }
+    </select>
+  </div>
+
+</div>

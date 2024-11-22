@@ -6,6 +6,10 @@ import { StructuralDirComponent } from './component/directive/structural-dir/str
 import { AttributeDirComponent } from './component/directive/attribute-dir/attribute-dir.component';
 import { ControlComponent } from './component/control/control.component';
 import { HomeComponent } from './component/home/home.component';
+import { PipeComponent } from './component/pipe/pipe.component';
+import { TemplateComponent } from './component/forms/template/template.component';
+import { ReactiveComponent } from './component/forms/reactive/reactive.component';
+import { ApiIntegrationComponent } from './component/api-integration/api-integration.component';
 
 export const routes: Routes = [
   {
@@ -35,5 +39,21 @@ export const routes: Routes = [
   {
     path: 'control-statement',
     component: ControlComponent
+  },
+  {
+    path: 'pipe',
+    component: PipeComponent
+  },
+  {
+    path: 'template-from',
+    component: TemplateComponent
+  },
+  {
+    path: 'reactive-from',
+    component: ReactiveComponent
+  },
+  {
+    path: 'api-integration',
+    component: ApiIntegrationComponent
   }
 ];
