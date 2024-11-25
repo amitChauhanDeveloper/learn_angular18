@@ -3,6 +3,12 @@
   <h3>Using ngModel</h3>
 </div>
 
+<br>
+
+<app-alert alertType="Success" message="Welcome to template from page"></app-alert>
+
+<app-my-button (onBtnClick)="getData($event)" [btnClass]="'btn btn-success'" [btnText]="'Save Record'"/>
+
 <div class="row">
   <div class="col-8"></div>
   <form class="row g-3" #from="ngForm">

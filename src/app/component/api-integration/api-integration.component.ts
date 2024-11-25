@@ -1,30 +1,104 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ProductService } from '../product.service';
+import { AlertComponent } from "../reusable-component/alert/alert.component";
+import { MyButtonComponent } from "../reusable-component/my-button/my-button.component";
 
 @Component({
-  selector: 'app-api-integration',
+  selector: 'app-create-product',
   standalone: true,
-  imports: [CommonModule,FormsModule],
+  imports: [FormsModule, CommonModule,MyButtonComponent],
   templateUrl: './api-integration.component.html',
-  styleUrl: './api-integration.component.css'
 })
-export class ApiIntegrationComponent {
+export class ApiIntegration implements OnInit {
 
-  productList: any[] = [];
-
-  constructor(private http: HttpClient){
+  constructor(public productService: ProductService){
 
   }
 
-  getAllProduct(){
-    this.http.get("https://productservice-k7di.onrender.com/api/products").subscribe((res:any)=>{
-      this.productList = res;
-      console.log(res);
-    },error=>{
-      console.log("Error for backend");
-      
-    })
+  ngOnInit(): void {
+    console.log('ngOnInit');
+    this.getAllProduct();
+  }
+
+  productList: any[] = [];
+
+  isLoading: Boolean = false;
+  errorMessage: String = ''
+
+  getAllProduct() {
+    this.isLoading = true;
+    this.errorMessage = ''; 
+  
+    this.productService.getAllProduct().subscribe(
+      (res: any) => {
+        this.productList = res;
+        this.isLoading = false;
+      },
+      (error: any) => {
+        this.errorMessage = 'Failed to load products. Please try again later.';
+        console.error('Error fetching products:', error);
+        this.isLoading = false; 
+
+      setTimeout(() => {
+        this.errorMessage = '';
+      }, 5000);
+      }
+    );
+  }
+
+  onSave(){
+    this.productService.saveNewProduct(this.productService.productObj).subscribe(
+      (res: any) =>{
+        if (res.id) {
+          alert('Product created successfully!');
+          this.getAllProduct();
+        } else {
+          alert('Something went wrong!');
+        }
+      }
+    );
+  }
+
+  resetFrom() {
+    this.productService.productObj = {
+      id: 0,
+      name: '',
+      skuCode: '',
+      quantity: '',
+      price: '',
+      description: '',
+    };
+  }
+
+  onEdit(data: any) {
+    this.productService.productObj = data;
+  }
+
+  onUpdate() {
+    this.productService.updateProduct(this.productService.productObj)
+      .subscribe((res: any) => {
+        if (res.id) {
+          alert('Product updated successfully!');
+        } else {
+          alert('Something went wrong!');
+        }
+      });
+  }
+
+  onDelete(id: number) {
+    const isDelete = confirm("Are you sure you want to delete?");
+    if (isDelete) {
+      this.productService.onDelete(id)
+        .subscribe((res: any) => {
+          if (res.id) {
+            alert('Product deleted successfully!');
+            this.getAllProduct();
+          } else {
+            alert('Something went wrong!');
+          }
+        });
+    }
   }
 }

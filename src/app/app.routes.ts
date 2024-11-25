@@ -9,21 +9,22 @@ import { HomeComponent } from './component/home/home.component';
 import { PipeComponent } from './component/pipe/pipe.component';
 import { TemplateComponent } from './component/forms/template/template.component';
 import { ReactiveComponent } from './component/forms/reactive/reactive.component';
-import { ApiIntegrationComponent } from './component/api-integration/api-integration.component';
+import { ApiIntegration } from './component/api-integration/api-integration.component';
+import { LifecycleEventComponent } from './component/lifecycle-event/lifecycle-event.component';
 
 export const routes: Routes = [
   {
     path: '',
     component: HomeComponent
   },
-  {
-    path: 'add-employee',
-    component: AddEmployeeComponent
-  },
-  {
-    path: 'employee-list',
-    component: EmployeeListComponent
-  },
+  // {
+  //   path: 'add-employee',
+  //   component: AddEmployeeComponent
+  // },
+  // {
+  //   path: 'employee-list',
+  //   component: EmployeeListComponent
+  // },
   {
     path: 'data-binding',
     component: DataBindingComponent
@@ -54,6 +55,10 @@ export const routes: Routes = [
   },
   {
     path: 'api-integration',
-    component: ApiIntegrationComponent
+    component: ApiIntegration
+  },
+  {
+    path: 'life-cycle',
+    component: LifecycleEventComponent
   }
 ];

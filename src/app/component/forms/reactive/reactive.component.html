@@ -2,6 +2,13 @@
   <h4>ReActive Form</h4>
   <h3>Create From & Validation</h3>
 </div>
+<br>
+
+<app-alert alertType="Warning" message={{alertMsg}}></app-alert>
+<br>
+<app-alert alertType="Error" message={{alertMsg}}></app-alert>
+
+<app-my-button [btnClass]="'btn btn-warning'" [btnText]="'Warning'"/>
 
 <div class="row">
   <div class="col-8"></div>
@@ -76,3 +83,6 @@
     </div>
   </form>
 </div>
+
+<br>
+<button (click)="changeMsg()" class="btn btn-primary mx-2">Change Message</button>

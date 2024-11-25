@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AlertComponent } from "../../reusable-component/alert/alert.component";
+import { MyButtonComponent } from "../../reusable-component/my-button/my-button.component";
 
 @Component({
   selector: 'app-reactive',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, AlertComponent, MyButtonComponent],
   templateUrl: './reactive.component.html',
   styleUrl: './reactive.component.css'
 })
@@ -19,6 +21,8 @@ export class ReactiveComponent {
     pinCode: new FormControl(),
     isAcceptTerms: new FormControl(),
   })
+
+  alertMsg: string = 'I have change message using ngOnChange click on change message button';
 
   fromValue: any;
 
@@ -40,5 +44,9 @@ export class ReactiveComponent {
       isAcceptTerms: false 
     })
     
+  }
+
+  changeMsg(){
+    this.alertMsg = 'Welcome to reactive from page'
   }
 }
