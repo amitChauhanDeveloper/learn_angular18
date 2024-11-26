@@ -14,12 +14,12 @@
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link active dropdown-toggle" (click)="toggleDropdown('directive')" role="button" aria-expanded="false">
+          <a class="nav-link active dropdown-toggle" (click)="toggleDropdownDirective()" role="button" aria-expanded="false">
             Directive
           </a>
-          <div class="dropdown-menu" [ngClass]="{ 'show': isDropdownOpen['directive'] }">
-            <a class="dropdown-item" routerLink="structural-dir">Structural Directive</a>
-            <a class="dropdown-item" routerLink="attribute-dir">Attribute Directive</a>
+          <div class="dropdown-menu" [ngClass]="{ 'show': isDropdownDirectiveOpen }">
+            <a class="dropdown-item" routerLink="/structural-dir">Structural Directive</a>
+            <a class="dropdown-item" routerLink="/attribute-dir">Attribute Directive</a>
           </div>
         </li>
         <li class="nav-item">
@@ -30,10 +30,10 @@
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link active dropdown-toggle" (click)="toggleDropdown('forms')" role="button" aria-expanded="false">
+          <a class="nav-link active dropdown-toggle" (click)="toggleDropdownFroms()" role="button" aria-expanded="false">
             Froms
           </a>
-          <div class="dropdown-menu" [ngClass]="{ 'show': isDropdownOpen['forms'] }">
+          <div class="dropdown-menu" [ngClass]="{ 'show': isDropdownFromsOpen }">
             <a class="dropdown-item" routerLink="template-from">Template From</a>
             <a class="dropdown-item" routerLink="reactive-from">ReActive From</a>
           </div>

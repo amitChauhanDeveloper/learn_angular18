@@ -13,43 +13,30 @@ import { filter } from 'rxjs';
 export class AppComponent {
   title = 'angular_18_tutorial';
 
-  // State variables for managing UI visibility
   isNavbarOpen = false;
-  isDropdownOpen: { [key: string]: boolean } = {
-    directive: false,
-    forms: false
-  };
+  isDropdownDirectiveOpen = false;
+  isDropdownFromsOpen = false;
 
   constructor(private router: Router) {
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
-    ).subscribe(() => this.resetNavbarAndDropdowns());
+    ).subscribe(() => {
+      this.isNavbarOpen = false;
+      this.isDropdownDirectiveOpen = false;
+      this.isDropdownFromsOpen = false;
+    });
   }
 
-  // Toggle navbar visibility
-  toggleNavbar(): void {
+  toggleNavbar() {
     this.isNavbarOpen = !this.isNavbarOpen;
   }
 
-  // Generic toggle for dropdowns
-  toggleDropdown(menu: 'directive' | 'forms'): void {
-    // Close all dropdowns before toggling the target
-    this.resetDropdowns();
-    this.isDropdownOpen[menu] = !this.isDropdownOpen[menu];
+  toggleDropdownDirective() {
+    this.isDropdownDirectiveOpen = !this.isDropdownDirectiveOpen;
   }
 
-  // Reset all dropdowns to closed state
-  private resetDropdowns(): void {
-    this.isDropdownOpen = {
-      directive: false,
-      forms: false
-    };
-  }
-
-  // Reset all navbar and dropdown states on navigation
-  private resetNavbarAndDropdowns(): void {
-    this.isNavbarOpen = false;
-    this.resetDropdowns();
+  toggleDropdownFroms() {
+    this.isDropdownFromsOpen = !this.isDropdownFromsOpen;
   }
   
 }
