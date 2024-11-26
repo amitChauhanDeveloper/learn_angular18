@@ -2,12 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ProductService } from '../product.service';
-import { MyButtonComponent } from "../reusable-component/my-button/my-button.component";
 
 @Component({
   selector: 'app-create-product',
   standalone: true,
-  imports: [FormsModule, CommonModule,MyButtonComponent],
+  imports: [FormsModule, CommonModule],
   templateUrl: './api-integration.component.html',
 })
 export class ApiIntegration implements OnInit {
