@@ -16,6 +16,7 @@ export class AppComponent {
   isNavbarOpen = false;
   isDropdownDirectiveOpen = false;
   isDropdownFromsOpen = false;
+  isDropdownDecoratorOpen = false;
 
   constructor(private router: Router) {
     this.router.events.pipe(
@@ -24,6 +25,7 @@ export class AppComponent {
       this.isNavbarOpen = false;
       this.isDropdownDirectiveOpen = false;
       this.isDropdownFromsOpen = false;
+      this.isDropdownDecoratorOpen = false;
     });
   }
 
@@ -37,6 +39,10 @@ export class AppComponent {
 
   toggleDropdownFroms() {
     this.isDropdownFromsOpen = !this.isDropdownFromsOpen;
+  }
+
+  toggleDropdownDecorator() {
+    this.isDropdownDecoratorOpen = !this.isDropdownDecoratorOpen;
   }
   
 }

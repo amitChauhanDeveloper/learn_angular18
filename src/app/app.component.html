@@ -13,13 +13,19 @@
           <a class="nav-link active" routerLink="data-binding">Data Binding</a>
         </li>
 
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="life-cycle">Angular Life Cycle</a>
+        </li>
+
         <li class="nav-item dropdown">
           <a class="nav-link active dropdown-toggle" (click)="toggleDropdownDirective()" role="button" aria-expanded="false">
             Directive
           </a>
           <div class="dropdown-menu" [ngClass]="{ 'show': isDropdownDirectiveOpen }">
-            <a class="dropdown-item" routerLink="/structural-dir">Structural Directive</a>
-            <a class="dropdown-item" routerLink="/attribute-dir">Attribute Directive</a>
+            <a class="dropdown-item" routerLink="structural-dir">Structural Directive</a>
+            <a class="dropdown-item" routerLink="attribute-dir">Attribute Directive</a>
+            <a class="dropdown-item" routerLink="ng-template">Ng Template</a>
+            <a class="dropdown-item" routerLink="ng-container">Ng Container</a>
           </div>
         </li>
         <li class="nav-item">
@@ -41,9 +47,16 @@
         <li class="nav-item">
           <a class="nav-link active" routerLink="api-integration">API Integration</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" routerLink="life-cycle">Angular Life Cycle</a>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle" (click)="toggleDropdownDecorator()" role="button" aria-expanded="false">
+            Decorator
+          </a>
+          <div class="dropdown-menu" [ngClass]="{ 'show': isDropdownDecoratorOpen }">
+            <a class="dropdown-item" routerLink="view-child">View Child</a>
+          </div>
         </li>
+
       </ul>
     </div>
   </div>

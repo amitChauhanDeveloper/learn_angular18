@@ -12,6 +12,8 @@ export class AlertComponent implements OnChanges{
   @Input() message: string = '';
   @Input() alertType: string = '';
 
+  alertMode: string = 'Demo'
+
   ngOnChanges(changes: SimpleChanges): void {
     console.log("ngOnChanges");
     

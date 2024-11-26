@@ -1,0 +1,53 @@
+<div class="mt-2 p-2 bg-secondary text-white rounded">
+  <h1>ng template</h1>
+</div>
+<br>
+
+<!-- This section is now responsive, adjusting columns for different screen sizes -->
+<div class="row pt-3">
+  <!-- User Login/Logout Information -->
+  <div class="col-12 col-sm-6 col-md-3">
+    <div class="bg-primary p-3 text-center rounded">
+      <h4 *ngIf="isUserLoggedIn; else notLogged">{{ loggerUserName }}</h4>
+    </div>
+
+    <ng-template #notLogged>
+      <div>
+        <h4>
+          <span>User Is Logged Out!</span>
+        </h4>
+      </div>
+    </ng-template>
+    <br>
+  </div>
+
+  <!-- Dynamic Template Section -->
+  <div class="col-12 col-sm-6 col-md-3">
+    <ng-template #dynamicTem>
+      <div class="bg-secondary p-3 text-center rounded">
+        <h4>
+          <span>Hi From Dynamic Template</span>
+        </h4>
+        </div>
+        <br>
+    </ng-template>
+  </div>
+
+  <div class="col-12 col-md-4">
+    <div #dynamicContainer></div>
+  </div>
+</div>
+
+<div class="row pt-3">
+  <div class="col-12 col-sm-6 col-md-3 text-center">
+    <button class="btn btn-success mb-2 w-50 w-md-auto" (click)="login()">Login</button>
+    <button class="btn btn-danger mb-2 w-50 w-md-auto" (click)="logout()">Logout</button>
+  </div>
+
+  <div class="col-12 col-sm-6 col-md-3 text-center">
+  </div>
+
+  <div class="col-12 col-sm-6 col-md-3 text-center">
+    <button class="btn btn-danger w-100 w-md-auto" (click)="loadTemplate()">Load Content</button>
+  </div>
+</div>

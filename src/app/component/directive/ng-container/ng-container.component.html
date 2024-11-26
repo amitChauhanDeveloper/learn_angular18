@@ -1,0 +1,77 @@
+<div class="mt-2 p-2 bg-secondary text-white rounded">
+  <h1>ng container</h1>
+</div>
+<br>
+
+<!-- Responsive Layout -->
+<div class="row">
+  <!-- First Column -->
+  <div class="col-12 col-md-4 mb-3">
+    <ng-container *ngIf="isContainer">
+      <p>This is from ng container</p>
+    </ng-container>
+  </div>
+
+  <!-- Second Column: Table Section -->
+  <div class="col-12 col-md-8 mb-3">
+    <table class="table table-bordered table-responsive">
+      <thead>
+        <tr>
+          <th>Sr No</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>SkuCode</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngIf="isLoading">
+          <tr>
+            <td colspan="6" class="text-center">
+              <div class="spinner-grow text-muted"></div>
+              <div class="spinner-grow text-primary"></div>
+              <div class="spinner-grow text-success"></div>
+              <div class="spinner-grow text-info"></div>
+              <div class="spinner-grow text-warning"></div>
+              <div class="spinner-grow text-danger"></div>
+              <div class="spinner-grow text-secondary"></div>
+              <div class="spinner-grow text-dark"></div>
+              <div class="spinner-grow text-light"></div>
+            </td>
+          </tr>
+        </ng-container>
+
+        <ng-container *ngIf="!isLoading">
+          <tr *ngFor="let item of productList; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.description }}</td>
+            <td>{{ item.skuCode }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.price }}</td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <!-- Third Column -->
+  <div class="col-12 col-md-4 mb-3">
+    <ng-container *ngTemplateOutlet="myTem"></ng-container>
+  </div>
+</div>
+
+<!-- Responsive Button Section -->
+<div class="row">
+  <div class="col-12 col-md-4 text-center">
+    <button class="btn btn-primary w-100 w-md-auto" (click)="getAllProduct()">Load Product</button>
+  </div>
+</div>
+
+<!-- ng-template Section -->
+<ng-template #myTem>
+  <p>Hi from ng template</p>
+</ng-template>

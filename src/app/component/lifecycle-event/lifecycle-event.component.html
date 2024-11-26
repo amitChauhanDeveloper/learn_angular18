@@ -2,7 +2,88 @@
   <div class="row">
     <div class="col-12 text-center p-3 bg-secondary text-white rounded">
       <h1 class="mb-3">Component Life Cycle Event</h1>
-      <h5>Component Life Cycle Events</h5>
     </div>
   </div>
 </div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Angular Component Lifecycle</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container my-5">
+    <h1 class="text-center mb-4">Angular Component Lifecycle</h1>
+
+    <h2 class="mb-3">Lifecycle Phases</h2>
+    <table class="table table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>Phase</th>
+          <th>Hook</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Creation</td>
+          <td><code>constructor</code></td>
+          <td>Invoked when the component is instantiated.</td>
+        </tr>
+        <tr>
+          <td rowspan="7">Change Detection</td>
+          <td><code>ngOnChanges</code></td>
+          <td>Called when input properties change.</td>
+        </tr>
+        <tr>
+          <td><code>ngOnInit</code></td>
+          <td>Called once after the component is initialized.</td>
+        </tr>
+        <tr>
+          <td><code>ngDoCheck</code></td>
+          <td>Invoked during change detection to check custom changes.</td>
+        </tr>
+        <tr>
+          <td><code>ngAfterContentInit</code></td>
+          <td>Called after Angular projects external content into the component.</td>
+        </tr>
+        <tr>
+          <td><code>ngAfterContentChecked</code></td>
+          <td>Called after checking the projected content for changes.</td>
+        </tr>
+        <tr>
+          <td><code>ngAfterViewInit</code></td>
+          <td>Called after initializing the component's view and child views.</td>
+        </tr>
+        <tr>
+          <td><code>ngAfterViewChecked</code></td>
+          <td>Called after checking the component's view and child views.</td>
+        </tr>
+        <tr>
+          <td>Destruction</td>
+          <td><code>ngOnDestroy</code></td>
+          <td>Called just before the component is destroyed.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="mb-3">Lifecycle Hooks Overview</h2>
+    <ul class="list-group">
+      <li class="list-group-item"><strong>ngOnChanges:</strong> Detects changes in input properties.</li>
+      <li class="list-group-item"><strong>ngOnInit:</strong> Initializes the component after Angular sets its inputs.</li>
+      <li class="list-group-item"><strong>ngDoCheck:</strong> Implements custom change-detection logic.</li>
+      <li class="list-group-item"><strong>ngAfterContentInit:</strong> Runs after content projection is complete.</li>
+      <li class="list-group-item"><strong>ngAfterContentChecked:</strong> Runs after projected content is checked.</li>
+      <li class="list-group-item"><strong>ngAfterViewInit:</strong> Runs after the component's view is initialized.</li>
+      <li class="list-group-item"><strong>ngAfterViewChecked:</strong> Runs after the view and its child views are checked.</li>
+      <li class="list-group-item"><strong>ngOnDestroy:</strong> Performs cleanup just before component destruction.</li>
+    </ul>
+  </div>
+</body>
+
+</html>
+

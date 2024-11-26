@@ -11,6 +11,9 @@ import { TemplateComponent } from './component/forms/template/template.component
 import { ReactiveComponent } from './component/forms/reactive/reactive.component';
 import { ApiIntegration } from './component/api-integration/api-integration.component';
 import { LifecycleEventComponent } from './component/lifecycle-event/lifecycle-event.component';
+import { NgTemplateComponent } from './component/directive/ng-template/ng-template.component';
+import { NgContainerComponent } from './component/directive/ng-container/ng-container.component';
+import { ViewChildComponent } from './component/decorator/view-child/view-child.component';
 
 export const routes: Routes = [
   {
@@ -60,5 +63,18 @@ export const routes: Routes = [
   {
     path: 'life-cycle',
     component: LifecycleEventComponent
+  },
+  {
+    path: 'ng-template',
+    component: NgTemplateComponent
+  },
+  {
+    path: 'ng-container',
+    component: NgContainerComponent
+  },
+  {
+    path: 'view-child',
+    component: ViewChildComponent
   }
+
 ];
