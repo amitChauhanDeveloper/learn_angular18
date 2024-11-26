@@ -1,0 +1,52 @@
+body {
+  background-color: #f7f7f7;
+}
+
+#login {
+  margin-top: 50px;
+}
+
+#login-box {
+  padding: 40px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.btn-md {
+  width: 100%;
+}
+
+.text-info {
+  color: #17a2b8 !important;
+}
+
+/* Custom Styles for Responsive Behavior */
+@media (max-width: 768px) {
+  #login-column {
+      width: 90%;
+      padding: 0;
+  }
+
+  #login-box {
+      padding: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  #login h3 {
+      font-size: 1.5rem;
+  }
+
+  .form-control {
+      font-size: 1rem;
+  }
+
+  .btn-md {
+      padding: 10px;
+  }
+}

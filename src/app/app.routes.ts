@@ -14,67 +14,76 @@ import { LifecycleEventComponent } from './component/lifecycle-event/lifecycle-e
 import { NgTemplateComponent } from './component/directive/ng-template/ng-template.component';
 import { NgContainerComponent } from './component/directive/ng-container/ng-container.component';
 import { ViewChildComponent } from './component/decorator/view-child/view-child.component';
+import { LoginComponent } from './component/login/login.component';
+import { LayoutsComponent } from './component/layouts/layouts.component';
 
 export const routes: Routes = [
+  //default route
   {
     path: '',
-    component: HomeComponent
-  },
-  // {
-  //   path: 'add-employee',
-  //   component: AddEmployeeComponent
-  // },
-  // {
-  //   path: 'employee-list',
-  //   component: EmployeeListComponent
-  // },
-  {
-    path: 'data-binding',
-    component: DataBindingComponent
+    redirectTo: 'login',
+    pathMatch: 'full',
   },
   {
-    path: 'structural-dir',
-    component: StructuralDirComponent
+    path: 'login',
+    component: LoginComponent,
   },
   {
-    path: 'attribute-dir',
-    component: AttributeDirComponent
+    path: '',
+    component: LayoutsComponent,
+    children: [
+      {
+        path: 'home',
+        component: HomeComponent,
+      },
+      {
+        path: 'data-binding',
+        component: DataBindingComponent,
+      },
+      {
+        path: 'structural-dir',
+        component: StructuralDirComponent,
+      },
+      {
+        path: 'attribute-dir',
+        component: AttributeDirComponent,
+      },
+      {
+        path: 'control-statement',
+        component: ControlComponent,
+      },
+      {
+        path: 'pipe',
+        component: PipeComponent,
+      },
+      {
+        path: 'template-from',
+        component: TemplateComponent,
+      },
+      {
+        path: 'reactive-from',
+        component: ReactiveComponent,
+      },
+      {
+        path: 'api-integration',
+        component: ApiIntegration,
+      },
+      {
+        path: 'life-cycle',
+        component: LifecycleEventComponent,
+      },
+      {
+        path: 'ng-template',
+        component: NgTemplateComponent,
+      },
+      {
+        path: 'ng-container',
+        component: NgContainerComponent,
+      },
+      {
+        path: 'view-child',
+        component: ViewChildComponent,
+      },
+    ],
   },
-  {
-    path: 'control-statement',
-    component: ControlComponent
-  },
-  {
-    path: 'pipe',
-    component: PipeComponent
-  },
-  {
-    path: 'template-from',
-    component: TemplateComponent
-  },
-  {
-    path: 'reactive-from',
-    component: ReactiveComponent
-  },
-  {
-    path: 'api-integration',
-    component: ApiIntegration
-  },
-  {
-    path: 'life-cycle',
-    component: LifecycleEventComponent
-  },
-  {
-    path: 'ng-template',
-    component: NgTemplateComponent
-  },
-  {
-    path: 'ng-container',
-    component: NgContainerComponent
-  },
-  {
-    path: 'view-child',
-    component: ViewChildComponent
-  }
-
 ];
