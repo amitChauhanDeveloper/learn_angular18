@@ -12,11 +12,15 @@
         <li class="nav-item">
           <a class="nav-link active" routerLink="data-binding">Data Binding</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" routerLink="structural-dir">Structural Directive</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" routerLink="attribute-dir">Attribute Directive</a>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle" (click)="toggleDropdown('directive')" role="button" aria-expanded="false">
+            Directive
+          </a>
+          <div class="dropdown-menu" [ngClass]="{ 'show': isDropdownOpen['directive'] }">
+            <a class="dropdown-item" routerLink="structural-dir">Structural Directive</a>
+            <a class="dropdown-item" routerLink="attribute-dir">Attribute Directive</a>
+          </div>
         </li>
         <li class="nav-item">
           <a class="nav-link active" routerLink="control-statement">&#64;if &#64;for, switch</a>
@@ -24,11 +28,15 @@
         <li class="nav-item">
           <a class="nav-link active" routerLink="pipe">Pipe</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" routerLink="template-from">Template From</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" routerLink="reactive-from">ReActive From</a>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle" (click)="toggleDropdown('forms')" role="button" aria-expanded="false">
+            Froms
+          </a>
+          <div class="dropdown-menu" [ngClass]="{ 'show': isDropdownOpen['forms'] }">
+            <a class="dropdown-item" routerLink="template-from">Template From</a>
+            <a class="dropdown-item" routerLink="reactive-from">ReActive From</a>
+          </div>
         </li>
         <li class="nav-item">
           <a class="nav-link active" routerLink="api-integration">API Integration</a>

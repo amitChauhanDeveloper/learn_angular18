@@ -3,3 +3,18 @@
   align-content: center;
 }
 
+/* More specific rule to override Bootstrap's styles */
+.dropdown-menu {
+  background-color: black !important;  /* Black background */
+}
+
+.dropdown-menu .dropdown-item {
+  color: white !important;  /* White text */
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: #333 !important;  /* Darker background on hover */
+  color: white !important;  /* Ensure white text on hover */
+}
+
+
