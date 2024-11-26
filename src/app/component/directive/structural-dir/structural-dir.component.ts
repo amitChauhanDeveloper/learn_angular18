@@ -8,7 +8,6 @@ import { Router, RouterLink } from '@angular/router';
   standalone: true,
   imports: [CommonModule,FormsModule],
   templateUrl: './structural-dir.component.html',
-  styleUrl: './structural-dir.component.css'
 })
 export class StructuralDirComponent {
 

@@ -1,88 +1,149 @@
-<div class="mt-2 p-2 bg-secondary text-white rounded">
+<div class="container mt-2 p-2 bg-secondary text-white rounded">
   <h4>ReActive Form</h4>
-  <h3>Create From & Validation</h3>
+  <h3>Create Form & Validation</h3>
 </div>
+
 <br>
 
-<app-alert alertType="Warning" message={{alertMsg}}></app-alert>
+<!-- Alert Messages -->
+<app-alert alertType="Warning" [message]="alertMsg"></app-alert>
 <br>
-<app-alert alertType="Error" message={{alertMsg}}></app-alert>
+<app-alert alertType="Error" [message]="alertMsg"></app-alert>
 
-<app-my-button [btnClass]="'btn btn-warning'" [btnText]="'Warning'"/>
+<!-- Button -->
+<app-my-button [btnClass]="'btn btn-warning'" [btnText]="'Warning'"></app-my-button>
 
-<div class="row">
-  <div class="col-8"></div>
-  <form class="row g-3" [formGroup]="studentFrom">
-    <div class="col-md-4">
-      <label class="form-label">First name</label>
-      <input type="text" formControlName="firstName" class="form-control">
-      <div class="text-danger">
-        @if(studentFrom.controls['firstName'].touched && studentFrom.controls['firstName'].errors?.['required']) {
-          <span>First name is required</span>
-        }@else if (studentFrom.controls['firstName'].touched && studentFrom.controls['firstName'].errors?.['minlength']) {
-          <span>Min 3 character required</span>
-        }
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <label class="form-label">Last name</label>
-      <input type="text" formControlName="lastName" class="form-control"/>
-    </div>
-
-    <div class="col-md-4">
-      <label class="form-label">Email</label>
-      <div class="input-group">
-        <span class="input-group-text">&#64;</span>
-        <input type="text" formControlName="email" class="form-control"/>
-        <div class="text-danger">
-          @if(studentFrom.controls['email'].touched && studentFrom.controls['email'].errors?.['email']) {
-            <span>Email not proper</span>
-          }
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12 col-md-8">
+      <!-- Reactive Form -->
+      <form class="row g-3" [formGroup]="studentForm">
+        <!-- First Name -->
+        <div class="col-md-6">
+          <label class="form-label">First Name</label>
+          <input
+            type="text"
+            formControlName="firstName"
+            class="form-control"
+          />
+          <div class="text-danger">
+            @if(studentForm.controls['firstName'].touched && studentForm.controls['firstName'].errors?.['required']) {
+              <span>First name is required</span>
+            } 
+            @else if (studentForm.controls['firstName'].touched && studentForm.controls['firstName'].errors?.['minlength']) {
+              <span>Min 3 characters required</span>
+            }
+          </div>
         </div>
-      </div>
+
+        <!-- Last Name -->
+        <div class="col-md-6">
+          <label class="form-label">Last Name</label>
+          <input
+            type="text"
+            formControlName="lastName"
+            class="form-control"
+          />
+        </div>
+
+        <!-- Email -->
+        <div class="col-md-6">
+          <label class="form-label">Email</label>
+          <div class="input-group">
+            <span class="input-group-text">&#64;</span>
+            <input
+              type="email"
+              formControlName="email"
+              class="form-control"
+            />
+          </div>
+          <div class="text-danger">
+            @if(studentForm.controls['email'].touched && studentForm.controls['email'].errors?.['email']) {
+              <span>Invalid email format</span>
+            }
+          </div>
+        </div>
+
+        <!-- City -->
+        <div class="col-md-6">
+          <label class="form-label">City</label>
+          <input
+            type="text"
+            formControlName="city"
+            class="form-control"
+          />
+        </div>
+
+        <!-- State -->
+        <div class="col-md-6">
+          <label class="form-label">State</label>
+          <select
+            formControlName="state"
+            class="form-select"
+          >
+            <option selected disabled value="">Choose...</option>
+            <option>Gujarat</option>
+            <option>Uttar Pradesh</option>
+            <option>Bihar</option>
+            <option>Rajasthan</option>
+            <option>Goa</option>
+          </select>
+        </div>
+
+        <!-- Pincode -->
+        <div class="col-md-6">
+          <label class="form-label">Pincode</label>
+          <input
+            type="text"
+            formControlName="pinCode"
+            class="form-control"
+          />
+        </div>
+
+        <!-- Terms and Conditions -->
+        <div class="col-12">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              formControlName="isAcceptTerms"
+              type="checkbox"
+              required
+            />
+            <label class="form-check-label">
+              Agree to terms and conditions
+            </label>
+          </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="col-12">
+          <button
+            class="btn btn-secondary"
+            type="button"
+            (click)="resetFrom()"
+          >
+            Reset Form
+          </button>
+          <button
+            class="btn btn-primary mx-2"
+            type="button"
+            [disabled]="studentForm.invalid"
+            (click)="onSave()"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
     </div>
 
-    <div class="col-md-6">
-      <label class="form-label">City</label>
-      <input type="text" formControlName="city" class="form-control"/>
-    </div>
-
-    <div class="col-md-3">
-      <label class="form-label">State</label>
-      <select formControlName="state" class="form-select">
-        <option selected disabled value="">Choose...</option>
-        <option>Gujarat</option>
-        <option>Uttar Pradesh</option>
-        <option>Bihar</option>
-        <option>Rajasthan</option>
-        <option>Goa</option>
-      </select>
-    </div>
-
-    <div class="col-md-3">
-      <label class="form-label">Pincode</label>
-      <input type="text" formControlName="pinCode" class="form-control" />
-    </div>
-
-    <div class="col-12">
-      <div class="form-check">
-        <input class="form-check-input" formControlName="isAcceptTerms" type="checkbox"
-          required />
-        <label class="form-check-label" for="invalidCheck">
-          Agree to terms and conditions
-        </label>
-      </div>
-    </div>
-
-    <div class="col-12">
-      <button class="btn btn-secondary" type="button" (click)="resetFrom()">Reset form</button>
-      <button class="btn btn-primary mx-2" type="button" [disabled]="studentFrom.invalid" (click)="onSave()">
-        Submit
+    <!-- Change Message Button -->
+    <div class="col-12 col-md-4 mt-4 mt-md-0">
+      <button
+        class="btn btn-primary w-100"
+        (click)="changeMsg()"
+      >
+        Change Message
       </button>
     </div>
-  </form>
+  </div>
 </div>
-
-<br>
-<button (click)="changeMsg()" class="btn btn-primary mx-2">Change Message</button>

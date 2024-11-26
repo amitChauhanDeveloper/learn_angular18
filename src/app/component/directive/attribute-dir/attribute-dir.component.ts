@@ -8,7 +8,6 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [CommonModule,FormsModule,RouterLink],
   templateUrl: './attribute-dir.component.html',
-  styleUrl: './attribute-dir.component.css'
 })
 export class AttributeDirComponent {
 

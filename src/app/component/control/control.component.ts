@@ -6,7 +6,6 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [FormsModule],
   templateUrl: './control.component.html',
-  styleUrl: './control.component.css'
 })
 export class ControlComponent {
 

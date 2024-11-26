@@ -6,7 +6,6 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [FormsModule],
   templateUrl: './data-binding.component.html',
-  styleUrl: './data-binding.component.css'
 })
 export class DataBindingComponent {
 

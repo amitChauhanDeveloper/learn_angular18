@@ -8,11 +8,10 @@ import { MyButtonComponent } from "../../reusable-component/my-button/my-button.
   standalone: true,
   imports: [ReactiveFormsModule, AlertComponent, MyButtonComponent],
   templateUrl: './reactive.component.html',
-  styleUrl: './reactive.component.css'
 })
 export class ReactiveComponent {
 
-  studentFrom: FormGroup = new FormGroup({
+  studentForm: FormGroup = new FormGroup({
     firstName: new FormControl("",[Validators.required,Validators.minLength(3)]),
     lastName: new FormControl(),
     email: new FormControl("",[Validators.email]),
@@ -27,14 +26,14 @@ export class ReactiveComponent {
   fromValue: any;
 
   onSave(){
-    this.fromValue = this.studentFrom.value;
+    this.fromValue = this.studentForm.value;
     console.log(this.fromValue);
     
    
   }
 
   resetFrom(){
-    this.studentFrom.reset({
+    this.studentForm.reset({
       firstName: "",      
       lastName: "",
       email: "",

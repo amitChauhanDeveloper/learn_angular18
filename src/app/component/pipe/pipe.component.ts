@@ -8,7 +8,6 @@ import { NaPipe } from './na.pipe';
   standalone: true,
   imports: [UpperCasePipe,LowerCasePipe,TitleCasePipe,DatePipe,JsonPipe,AsyncPipe,NaPipe],
   templateUrl: './pipe.component.html',
-  styleUrl: './pipe.component.css'
 })
 export class PipeComponent {
 

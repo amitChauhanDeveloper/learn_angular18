@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ProductService } from '../product.service';
-import { AlertComponent } from "../reusable-component/alert/alert.component";
 import { MyButtonComponent } from "../reusable-component/my-button/my-button.component";
 
 @Component({

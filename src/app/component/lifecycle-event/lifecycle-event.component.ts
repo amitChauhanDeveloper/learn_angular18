@@ -5,7 +5,6 @@ import { Component, OnInit, SimpleChanges } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './lifecycle-event.component.html',
-  styleUrl: './lifecycle-event.component.css'
 })
 export class LifecycleEventComponent implements OnInit {
 

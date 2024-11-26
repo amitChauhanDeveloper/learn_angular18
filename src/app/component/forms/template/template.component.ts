@@ -1,7 +1,6 @@
 import { JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NaPipe } from '../../pipe/na.pipe';
 import { AlertComponent } from "../../reusable-component/alert/alert.component";
 import { MyButtonComponent } from "../../reusable-component/my-button/my-button.component";
 
@@ -10,7 +9,6 @@ import { MyButtonComponent } from "../../reusable-component/my-button/my-button.
   standalone: true,
   imports: [FormsModule, JsonPipe, AlertComponent, MyButtonComponent],
   templateUrl: './template.component.html',
-  styleUrl: './template.component.css'
 })
 export class TemplateComponent {
 
