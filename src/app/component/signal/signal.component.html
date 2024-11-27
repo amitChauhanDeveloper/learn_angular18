@@ -1,43 +1,43 @@
-<div class="container mt-2 p-2 bg-secondary text-white rounded">
+<div class="container mt-2 p-2 bg-secondary text-white rounded text-center">
   <h1>Signal</h1>
-  <h5>create signal, update, display</h5>
-</div>
-<br>
-<div class="row">
-  <div class="col-3">
-    {{firstName()}} - {{courseName}}
-  </div>
-
-  <div class="col-3">
-    {{id()}}
-  </div>
-
-  <div class="col-3">
-    Full Name - {{fullName()}}
-  </div>
-
-  <div class="col-3">
-    {{cityList()}} - {{studentObj().name}}-{{studentObj().city}}
-  </div>
+  <h5>Create Signal, Update, Display</h5>
 </div>
 
 <br>
-<div class="row">
-  <div class="col-3">
-    <button class="btn btn-success" (click)="changeName()">Change Name</button>
-  </div>
 
-  <div class="col-3">
-    <button class="btn btn-success" (click)="changeName()">Change First Name</button><br><br>
-    <button class="btn btn-success" (click)="changeLastName()">Change Last Name</button> 
+<div class="container">
+  <div class="row text-center">
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
+      <strong>{{firstName()}}</strong> - {{courseName}}
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
+      {{id()}}
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
+      <strong>Full Name:</strong> {{fullName()}}
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
+      {{cityList()}} - {{studentObj().name}} - {{studentObj().city}}
+    </div>
   </div>
+</div>
 
-  <div class="col-3">
-    <button class="btn btn-success" (click)="addCity()">Add City</button> 
+<br>
+
+<div class="container">
+  <div class="row text-center">
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
+      <button class="btn btn-success w-100" (click)="changeName()">Change Name</button>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
+      <button class="btn btn-success w-100 mb-2" (click)="changeName()">Change First Name</button>
+      <button class="btn btn-success w-100" (click)="changeLastName()">Change Last Name</button>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
+      <button class="btn btn-success w-100" (click)="addCity()">Add City</button>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
+      <button class="btn btn-success w-100" (click)="changeStuCity()">Change City</button>
+    </div>
   </div>
-
-  <div class="col-3">
-    <button class="btn btn-success" (click)="changeStuCity()">Change City</button> 
-  </div>
-
 </div>
