@@ -62,8 +62,7 @@ export class LayoutsComponent {
     this.router.navigateByUrl('login')
   }
 
-  onRoleChange(role: string){
-    debugger
+  onRoleChange(role: string){    
     this.productService.onRoleSubjectChange$.next(role);
     this.productService.onRoleBehaviourChange$.next(role);
     

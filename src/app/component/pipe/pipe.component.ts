@@ -31,11 +31,9 @@ export class PipeComponent {
   constructor(private productService: ProductService){
     this.currentTime = interval(1000).pipe(map(() => new Date()));
     this.productService.onRoleSubjectChange$.subscribe((role: string)=> {
-      debugger;
       this.currentRole = role;
     })
     this.productService.onRoleBehaviourChange$.subscribe((role: string)=> {
-      debugger;
     })
   }
 

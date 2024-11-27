@@ -24,10 +24,8 @@ export class ControlComponent {
 
   constructor(private productService: ProductService){
     this.productService.onRoleSubjectChange$.subscribe((role: string)=> {
-      debugger;
     })
     this.productService.onRoleBehaviourChange$.subscribe((role: string)=> {
-      debugger;
     })
   }
 
