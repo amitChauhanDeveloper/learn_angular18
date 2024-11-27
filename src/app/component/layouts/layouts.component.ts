@@ -5,6 +5,7 @@ import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router
 import { filter } from 'rxjs';
 import { User } from '../model/class/User';
 import { ProductService } from '../service/product.service';
+import { IUser } from '../model/interface/IUser';
 
 @Component({
   selector: 'app-layouts',
@@ -19,15 +20,18 @@ export class LayoutsComponent {
   isDropdownDirectiveOpen = false;
   isDropdownFromsOpen = false;
   isDropdownDecoratorOpen = false;
-  loggedUserData: User = new User();
+  loggedUserData: IUser = new IUser();
   selectRole: string = '';
 
   constructor(private router: Router,private productService: ProductService) {
-    const loggedData = localStorage.getItem('loginUserData');
+  const loggedData = localStorage.getItem('loginUserData');
+  const userRegisterData = localStorage.getItem('userRegisterData');
 
     if (loggedData != null) {
       this.loggedUserData = JSON.parse(loggedData);
       
+    }else if (userRegisterData != null) {
+      this.loggedUserData = JSON.parse(userRegisterData);
     }
 
     this.router.events.pipe(
