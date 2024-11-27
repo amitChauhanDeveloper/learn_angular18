@@ -1,5 +1,5 @@
 export class Product{
-  id: string;
+  id: number;
   skuCode: string;
   name: string;
   quantity: string;
@@ -7,7 +7,7 @@ export class Product{
   description: string;
 
   constructor(){
-    this.id = '';
+    this.id = 0;
     this.skuCode = '';
     this.name = '';
     this.quantity = '';
