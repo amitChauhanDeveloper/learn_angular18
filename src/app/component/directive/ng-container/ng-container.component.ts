@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
-import { ProductService } from '../../product.service';
+import { ProductService } from '../../service/product.service';
 import { NgTemplateComponent } from "../ng-template/ng-template.component";
 
 @Component({

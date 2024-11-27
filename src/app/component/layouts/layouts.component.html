@@ -14,6 +14,10 @@
         </li>
 
         <li class="nav-item">
+          <a class="nav-link active" routerLink="signal">Signal</a>
+        </li>
+
+        <li class="nav-item">
           <a class="nav-link active" routerLink="life-cycle">Angular Life Cycle</a>
         </li>
 
@@ -58,9 +62,11 @@
         </li>
 
       </ul>
+        <span class="text-white">{{loggedUserData.name}}</span>
+        <br>
+      <button class="btn btn-primary btn-sm" (click)="logout()">Logout</button>
     </div>
   </div>
-  <button class="btn btn-primary btn-sm" (click)="logout()">Logout</button>
 </nav>
 
 <div class="container">

@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AlertComponent } from "../../reusable-component/alert/alert.component";
 import { MyButtonComponent } from "../../reusable-component/my-button/my-button.component";
+import { CONSTANT } from '../../constant/constant';
 
 @Component({
   selector: 'app-template',
@@ -23,6 +24,7 @@ export class TemplateComponent {
   }
 
   fromValue: any;
+  validationMessage: any = CONSTANT.VALIDATION_MESSAGE;
 
   onSubmit(){
     this.fromValue = this.studentObj

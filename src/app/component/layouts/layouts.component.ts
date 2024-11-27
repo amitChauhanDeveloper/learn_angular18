@@ -16,8 +16,16 @@ export class LayoutsComponent {
   isDropdownDirectiveOpen = false;
   isDropdownFromsOpen = false;
   isDropdownDecoratorOpen = false;
+  loggedUserData: any;
 
   constructor(private router: Router) {
+    const loggedData = localStorage.getItem('loginUserData');
+
+    if (loggedData != null) {
+      this.loggedUserData = JSON.parse(loggedData);
+      
+    }
+
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {

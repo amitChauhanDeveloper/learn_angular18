@@ -16,6 +16,8 @@ import { NgContainerComponent } from './component/directive/ng-container/ng-cont
 import { ViewChildComponent } from './component/decorator/view-child/view-child.component';
 import { LoginComponent } from './component/login/login.component';
 import { LayoutsComponent } from './component/layouts/layouts.component';
+import { authGuard } from './component/service/auth.guard';
+import { SignalComponent } from './component/signal/signal.component';
 
 export const routes: Routes = [
   //default route
@@ -35,26 +37,32 @@ export const routes: Routes = [
       {
         path: 'home',
         component: HomeComponent,
+        canActivate: [authGuard]
       },
       {
         path: 'data-binding',
         component: DataBindingComponent,
+        canActivate: [authGuard]
       },
       {
         path: 'structural-dir',
         component: StructuralDirComponent,
+        canActivate: [authGuard]
       },
       {
         path: 'attribute-dir',
         component: AttributeDirComponent,
+        canActivate: [authGuard]
       },
       {
         path: 'control-statement',
         component: ControlComponent,
+        canActivate: [authGuard]
       },
       {
         path: 'pipe',
         component: PipeComponent,
+        canActivate: [authGuard]
       },
       {
         path: 'template-from',
@@ -63,26 +71,37 @@ export const routes: Routes = [
       {
         path: 'reactive-from',
         component: ReactiveComponent,
+        canActivate: [authGuard]
       },
       {
         path: 'api-integration',
         component: ApiIntegration,
+        canActivate: [authGuard]
       },
       {
         path: 'life-cycle',
         component: LifecycleEventComponent,
+        canActivate: [authGuard]
       },
       {
         path: 'ng-template',
         component: NgTemplateComponent,
+        canActivate: [authGuard]
       },
       {
         path: 'ng-container',
         component: NgContainerComponent,
+        canActivate: [authGuard]
       },
       {
         path: 'view-child',
         component: ViewChildComponent,
+        canActivate: [authGuard]
+      },
+      {
+        path: 'signal',
+        component: SignalComponent,
+        canActivate: [authGuard]
       },
     ],
   },

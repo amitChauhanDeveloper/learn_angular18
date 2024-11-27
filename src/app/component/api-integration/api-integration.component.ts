@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ProductService } from '../product.service';
+import { ProductService } from '../service/product.service';
+import { Product } from '../model/class/Product';
+import { IProduct } from '../model/interface/IProduct';
 
 @Component({
   selector: 'app-create-product',
@@ -20,7 +22,7 @@ export class ApiIntegration implements OnInit {
     this.getAllProduct();
   }
 
-  productList: any[] = [];
+  productList: IProduct[] = [];
 
   isLoading: Boolean = false;
   errorMessage: String = ''
@@ -60,14 +62,7 @@ export class ApiIntegration implements OnInit {
   }
 
   resetFrom() {
-    this.productService.productObj = {
-      id: 0,
-      name: '',
-      skuCode: '',
-      quantity: '',
-      price: '',
-      description: '',
-    };
+    this.productService.productObj = new Product();
   }
 
   onEdit(data: any) {

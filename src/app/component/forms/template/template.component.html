@@ -32,9 +32,9 @@
           />
           <div class="text-danger">
             @if ((fName.touched || fName.dirty) && fName.errors?.['required']) {
-              <span>First name is required</span>
+              <span>{{validationMessage.REQUIRED}}</span>
             } @else if ((fName.touched || fName.dirty) && fName.errors?.['minlength']) {
-              <span>Min 3 characters required</span>
+              <span>{{validationMessage.MIN_LENGTH}}</span>
             }
           </div>
         </div>
