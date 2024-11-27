@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div id="register" class="container mt-5">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-md-6 col-lg-4 col-sm-8 col-10">
+          <div class="card">
+            <div class="card-body">
+              <h3 class="text-center text-info">Register</h3>
+              <!-- Spinner -->
+              <div *ngIf="this.userService.isLoading" class="spinner-border text-info mb-3" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+
+              <div *ngIf="this.userService.serverErrors.length" class="alert alert-danger">
+                <ul>
+                  <li *ngFor="let error of this.userService.serverErrors">{{ error }}</li>
+                </ul>
+              </div>
+
+              <form
+                id="register-form"
+                class="form"
+                (ngSubmit)="userRegister()"
+                #registerForm="ngForm"
+                novalidate
+              >
+                <!-- Name -->
+                <div class="form-group">
+                  <label for="name" class="text-info">Name:</label>
+                  <input
+                    [(ngModel)]="this.userService.userRegisterObj.name"
+                    type="text"
+                    name="name"
+                    id="name"
+                    class="form-control"
+                    placeholder="Enter your name"
+                    required
+                    minlength="4"
+                    #name="ngModel"
+                  />
+                  <small *ngIf="name.invalid && name.touched" class="text-danger">
+                    Name must be at least 4 characters.
+                  </small>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                  <label for="email" class="text-info">Email:</label>
+                  <input
+                    [(ngModel)]="this.userService.userRegisterObj.email"
+                    type="email"
+                    name="email"
+                    id="email"
+                    class="form-control"
+                    placeholder="Enter your email"
+                    required
+                    email
+                    #email="ngModel"
+                  />
+                  <small *ngIf="email.invalid && email.touched" class="text-danger">
+                    Enter a valid email address.
+                  </small>
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                  <label for="password" class="text-info">Password:</label>
+                  <input
+                    [(ngModel)]="this.userService.userRegisterObj.password"
+                    type="password"
+                    name="password"
+                    id="password"
+                    class="form-control"
+                    placeholder="Enter your password"
+                    required
+                    minlength="3"
+                    maxlength="10"
+                    #password="ngModel"
+                  />
+                  <small
+                    *ngIf="password.invalid && password.touched"
+                    class="text-danger"
+                  >
+                    Password must be 3-10 characters long.
+                  </small>
+                </div>
+
+                <!-- About -->
+                <div class="form-group">
+                  <label for="about" class="text-info">About:</label>
+                  <textarea
+                    [(ngModel)]="this.userService.userRegisterObj.about"
+                    name="about"
+                    id="about"
+                    class="form-control"
+                    placeholder="Tell us about yourself..."
+                    rows="3"
+                    required
+                    #about="ngModel"
+                  ></textarea>
+                  <small *ngIf="about.invalid && about.touched" class="text-danger">
+                    Please provide some details about yourself.
+                  </small>
+                </div>
+
+                <!-- Register Button -->
+                <div class="form-group">
+                  <button
+                    type="submit"
+                    class="btn btn-info btn-block"
+                    [disabled]="registerForm.invalid || this.userService.isLoading"
+                  >
+                    {{ this.userService.isLoading ? 'Submitting...' : 'Register' }}
+                  </button>
+                </div>
+
+                <!-- Login Redirect -->
+                <a href="/login" class="btn-link text-center d-block">
+                  Already have an account? Login
+                </a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

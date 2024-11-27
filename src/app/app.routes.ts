@@ -18,6 +18,7 @@ import { LoginComponent } from './component/login/login.component';
 import { LayoutsComponent } from './component/layouts/layouts.component';
 import { authGuard } from './component/service/auth.guard';
 import { SignalComponent } from './component/signal/signal.component';
+import { RegisterComponent } from './component/register/register.component';
 
 export const routes: Routes = [
   //default route
@@ -29,6 +30,10 @@ export const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
   },
   {
     path: '',

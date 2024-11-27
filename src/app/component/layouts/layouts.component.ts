@@ -57,8 +57,9 @@ export class LayoutsComponent {
   }
 
   logout(){
-    localStorage.removeItem('token');
+    localStorage.removeItem('token'); 
     localStorage.removeItem('loginUserData');
+    localStorage.removeItem('userRegisterData');
     this.router.navigateByUrl('login')
   }
 
