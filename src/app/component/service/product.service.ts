@@ -3,18 +3,22 @@ import { Injectable } from '@angular/core';
 import { CONSTANT } from '../constant/constant';
 import { IProduct } from '../model/interface/IProduct';
 import { Product } from '../model/class/Product';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  // apiUrl: string = 'https://productservice-k7di.onrender.com/api/products';
   constructor(private http:HttpClient) {}
 
    productList: IProduct[] = [];
 
    productObj: Product = new Product();
+
+   onRoleSubjectChange$ : Subject<string> = new Subject<string>
+
+   onRoleBehaviourChange$ : BehaviorSubject<string> = new BehaviorSubject<string>("");
 
 
    getAllProduct() {
@@ -37,4 +41,5 @@ export class ProductService {
   onDelete(id: number) {
     return this.http.delete(CONSTANT.API_URL_PRODUCT + CONSTANT.PRODUCT_METHODS.COMMON_PATH + id)
   }
+
 }

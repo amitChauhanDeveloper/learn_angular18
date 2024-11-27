@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ProductService } from '../service/product.service';
 
 @Component({
   selector: 'app-control',
@@ -20,5 +21,14 @@ export class ControlComponent {
     {studentId: 5, name: 'Sanjay', city: 'Vadodara', isActive: false},
     {studentId: 6, name: 'Manan', city: 'Surat', isActive: false}
   ]
+
+  constructor(private productService: ProductService){
+    this.productService.onRoleSubjectChange$.subscribe((role: string)=> {
+      debugger;
+    })
+    this.productService.onRoleBehaviourChange$.subscribe((role: string)=> {
+      debugger;
+    })
+  }
 
 }

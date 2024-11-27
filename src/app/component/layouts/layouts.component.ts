@@ -1,12 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs';
+import { User } from '../model/class/User';
+import { ProductService } from '../service/product.service';
 
 @Component({
   selector: 'app-layouts',
   standalone: true,
-  imports: [RouterOutlet,RouterLink,CommonModule],
+  imports: [RouterOutlet,RouterLink,CommonModule,FormsModule],
   templateUrl: './layouts.component.html',
   styleUrl: './layouts.component.css'
 })
@@ -16,9 +19,10 @@ export class LayoutsComponent {
   isDropdownDirectiveOpen = false;
   isDropdownFromsOpen = false;
   isDropdownDecoratorOpen = false;
-  loggedUserData: any;
+  loggedUserData: User = new User();
+  selectRole: string = '';
 
-  constructor(private router: Router) {
+  constructor(private router: Router,private productService: ProductService) {
     const loggedData = localStorage.getItem('loginUserData');
 
     if (loggedData != null) {
@@ -53,7 +57,15 @@ export class LayoutsComponent {
   }
 
   logout(){
-    localStorage.removeItem('loginUser');
+    localStorage.removeItem('token');
+    localStorage.removeItem('loginUserData');
     this.router.navigateByUrl('login')
+  }
+
+  onRoleChange(role: string){
+    debugger
+    this.productService.onRoleSubjectChange$.next(role);
+    this.productService.onRoleBehaviourChange$.next(role);
+    
   }
 }

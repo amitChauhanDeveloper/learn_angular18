@@ -3,16 +3,37 @@
   align-content: center;
 }
 
-/* More specific rule to override Bootstrap's styles */
 .dropdown-menu {
-  background-color: black !important;  /* Black background */
+  background-color: black !important; 
 }
 
 .dropdown-menu .dropdown-item {
-  color: white !important;  /* White text */
+  color: white !important; 
 }
 
 .dropdown-menu .dropdown-item:hover {
-  background-color: #333 !important;  /* Darker background on hover */
-  color: white !important;  /* Ensure white text on hover */
+  background-color: #333 !important;
+  color: white !important; 
+}
+
+.custom-dropdown {
+  background-color: black;  
+  color: white;             
+  border: 1px solid white; 
+  padding: 0.375rem 0.75rem;
+}
+
+.custom-dropdown option {
+  background-color: black;    
+  color: white;              
+}
+
+
+.custom-dropdown:hover {
+  background-color: #333;
+}
+
+.custom-dropdown option:hover {
+  background-color: #444;   
+  color: white;  
 }

@@ -60,11 +60,19 @@
             <a class="dropdown-item" routerLink="view-child">View Child</a>
           </div>
         </li>
-
       </ul>
-        <span class="text-white">{{loggedUserData.name}}</span>
+      <form class="d-flex align-items-center">
+        <select class="form-select form-select-sm me-2 custom-dropdown" [(ngModel)] = "selectRole" name="selectRole"
+         (ngModelChange)="onRoleChange($event)">
+        
+         <option selected disabled value="">Select Role</option>
+          <option value="user">User Role</option>
+          <option value="guest">Guest Role</option>
+        </select>
+        <span class="text-white me-2">{{ loggedUserData.username }}</span>
         <br>
-      <button class="btn btn-primary btn-sm" (click)="logout()">Logout</button>
+        <button class="btn btn-primary btn-sm" (click)="logout()">Logout</button>
+      </form>
     </div>
   </div>
 </nav>
