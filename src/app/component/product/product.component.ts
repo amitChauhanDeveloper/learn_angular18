@@ -2,27 +2,28 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ProductService } from '../service/product.service';
-import { Product } from '../model/class/Product';
-import { IProduct } from '../model/interface/IProduct';
+import { Product } from '../model/class/product';
 
 @Component({
-  selector: 'app-create-product',
+  selector: 'app-product',
   standalone: true,
   imports: [FormsModule, CommonModule],
-  templateUrl: './api-integration.component.html',
+  templateUrl: './product.component.html',
 })
-export class ApiIntegration implements OnInit {
+export class ProductComponent implements OnInit {
 
   constructor(public productService: ProductService){
 
   }
+
+  productObj = new Product;
 
   ngOnInit(): void {
     console.log('ngOnInit');
     this.getAllProduct();
   }
 
-  productList: IProduct[] = [];
+  productList: Product[] = [];
 
   isLoading: Boolean = false;
   errorMessage: String = ''
@@ -49,7 +50,7 @@ export class ApiIntegration implements OnInit {
   }
 
   onSave(){
-    this.productService.saveNewProduct(this.productService.productObj).subscribe(
+    this.productService.saveNewProduct(this.productObj).subscribe(
       (res: any) =>{
         if (res.id) {
           alert('Product created successfully!');
@@ -62,18 +63,19 @@ export class ApiIntegration implements OnInit {
   }
 
   resetFrom() {
-    this.productService.productObj = new Product();
+    this.productObj = new Product();
   }
 
   onEdit(data: any) {
-    this.productService.productObj = data;
+    this.productObj = { ...data };
   }
 
   onUpdate() {
-    this.productService.updateProduct(this.productService.productObj)
+    this.productService.updateProduct(this.productObj)
       .subscribe((res: any) => {
         if (res.id) {
           alert('Product updated successfully!');
+          this.getAllProduct();
         } else {
           alert('Something went wrong!');
         }
@@ -83,7 +85,7 @@ export class ApiIntegration implements OnInit {
   onDelete(id: number) {
     const isDelete = confirm("Are you sure you want to delete?");
     if (isDelete) {
-      this.productService.onDelete(id)
+      this.productService.deleteProduct(id)
         .subscribe((res: any) => {
           if (res.id) {
             alert('Product deleted successfully!');

@@ -63,27 +63,27 @@
         <form class="row g-3" #form="ngForm">
           <div class="col-12">
             <label class="form-label">Product Name</label>
-            <input type="text" name="name" [(ngModel)]="this.productService.productObj.name" class="form-control" required />
+            <input type="text" name="name" [(ngModel)]="productObj.name" class="form-control" required />
           </div>
 
           <div class="col-12">
             <label class="form-label">Product Code</label>
-            <input type="text" name="skuCode" [(ngModel)]="this.productService.productObj.skuCode" class="form-control" required />
+            <input type="text" name="skuCode" [(ngModel)]="productObj.skuCode" class="form-control" required />
           </div>
 
           <div class="col-12">
             <label class="form-label">Quantity</label>
-            <input type="number" name="quantity" [(ngModel)]="this.productService.productObj.quantity" class="form-control" required />
+            <input type="number" name="quantity" [(ngModel)]="productObj.quantity" class="form-control" required />
           </div>
 
           <div class="col-12">
             <label class="form-label">Price</label>
-            <input type="number" name="price" [(ngModel)]="this.productService.productObj.price" class="form-control" required />
+            <input type="number" name="price" [(ngModel)]="productObj.price" class="form-control" required />
           </div>
 
           <div class="col-12">
             <label class="form-label">Description</label>
-            <input type="text" name="description" [(ngModel)]="this.productService.productObj.description" class="form-control" required />
+            <input type="text" name="description" [(ngModel)]="productObj.description" class="form-control" required />
           </div>
 
           <div class="col-12">
@@ -92,9 +92,9 @@
               class="btn btn-primary mx-2"
               type="button"
               [disabled]="form.invalid"
-              (click)="this.productService.productObj.id == 0 ? onSave() : onUpdate()"
+              (click)="productObj.id == 0 ? onSave() : onUpdate()"
             >
-              {{ this.productService.productObj.id == 0 ? 'Save' : 'Update' }}
+              {{ productObj.id == 0 ? 'Save' : 'Update' }}
             </button>
           </div>
         </form>

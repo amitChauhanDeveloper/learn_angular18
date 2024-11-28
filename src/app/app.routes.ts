@@ -9,7 +9,6 @@ import { HomeComponent } from './component/home/home.component';
 import { PipeComponent } from './component/pipe/pipe.component';
 import { TemplateComponent } from './component/forms/template/template.component';
 import { ReactiveComponent } from './component/forms/reactive/reactive.component';
-import { ApiIntegration } from './component/api-integration/api-integration.component';
 import { LifecycleEventComponent } from './component/lifecycle-event/lifecycle-event.component';
 import { NgTemplateComponent } from './component/directive/ng-template/ng-template.component';
 import { NgContainerComponent } from './component/directive/ng-container/ng-container.component';
@@ -19,6 +18,7 @@ import { LayoutsComponent } from './component/layouts/layouts.component';
 import { authGuard } from './component/service/auth.guard';
 import { SignalComponent } from './component/signal/signal.component';
 import { RegisterComponent } from './component/register/register.component';
+import { ProductComponent } from './component/product/product.component';
 
 export const routes: Routes = [
   //default route
@@ -79,8 +79,8 @@ export const routes: Routes = [
         canActivate: [authGuard]
       },
       {
-        path: 'api-integration',
-        component: ApiIntegration,
+        path: 'product',
+        component: ProductComponent,
         canActivate: [authGuard]
       },
       {
