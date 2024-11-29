@@ -14,13 +14,22 @@ export class LoginComponent {
 
   constructor(public userService: UserService){}
 
-  onLogin(){
-    this.userService.onLogin();
+  //get all product api call from callback function because service start karne k liye
+
+  onLogin() {
+    this.userService.onLogin(() => {
+      this.fetchProducts();
+    });
   }
 
-  onLoginWithApi(){
-    return this.userService.onLoginWithApi(this.userService.userObj);
+  onLoginWithApi() {
+    this.userService.onLoginWithApi(this.userService.userObj, () => {
+      this.fetchProducts();
+    });
   }
 
+  fetchProducts() {
+    this.userService.getAllProduct().subscribe();
+  }
 
 }

@@ -15,9 +15,12 @@ export class RegisterComponent {
   constructor(public userService: UserService){}
 
   userRegister(){
-    return this.userService.register();
+    this.userService.register(() => {
+      this.fetchProducts();
+    });
   }
 
-
-
+  fetchProducts() {
+    this.userService.getAllProduct().subscribe();
+  }
 }

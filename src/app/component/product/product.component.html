@@ -6,8 +6,16 @@
   <br>
 
   <!-- Loading and Error Messages -->
-  <div [hidden]="!isLoading" class="alert alert-info">
+  <div *ngIf="isLoading" class="alert alert-info">
     Loading products, please wait...
+  </div>
+
+  <!-- Error and Success Messages -->
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+  <div *ngIf="successMessage" class="alert alert-success">
+    {{ successMessage }}
   </div>
 
   <!-- Main Row for Product List and Form -->
@@ -34,8 +42,8 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let item of productList; let i = index">
-                <td>{{ i + 1 }}</td>
+              <tr *ngFor="let item of paginatedList; let i = index">
+                <td>{{ (currentPage - 1) * rowsPerPage + i + 1 }}</td>
                 <td>{{ item.name }}</td>
                 <td>{{ item.description }}</td>
                 <td>{{ item.skuCode }}</td>
@@ -45,11 +53,38 @@
                   <button class="btn btn-primary btn-sm" (click)="onEdit(item)">Edit</button>
                 </td>
                 <td>
-                  <button class="btn btn-danger btn-sm" (click)="onDelete(item.id)">Delete</button>
+                  <button class="btn btn-danger btn-sm" (click)="showDeleteModal(item.id)">Delete</button>
                 </td>
               </tr>
             </tbody>
           </table>
+
+          <!-- Confirmation Modal -->
+        <app-confirmation-modal
+        *ngIf="isDeleteModalVisible"
+        [message]="'Are you sure you want to delete this product?'"
+        (onConfirm)="onDelete()"
+        (onCancel)="closeDeleteModal()"
+        ></app-confirmation-modal>
+        </div>
+
+        <!-- Pagination Controls -->
+        <div class="d-flex justify-content-between mt-3">
+          <button class="btn btn-secondary" (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+
+          <div class="d-flex align-items-center">
+            <input
+              type="number"
+              [(ngModel)]="pageInput"
+              class="form-control mx-2"
+              [min]="1"
+              [max]="totalPages"
+              (change)="jumpToPage()"
+            />
+            <button class="btn btn-secondary" (click)="jumpToPage()">Go</button>
+          </div>
+
+          <button class="btn btn-secondary" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
         </div>
       </div>
     </div>

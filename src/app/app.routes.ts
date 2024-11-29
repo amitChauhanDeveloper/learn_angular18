@@ -19,6 +19,7 @@ import { authGuard } from './component/service/auth.guard';
 import { SignalComponent } from './component/signal/signal.component';
 import { RegisterComponent } from './component/register/register.component';
 import { ProductComponent } from './component/product/product.component';
+import { RxJsComponent } from './component/rx-js/rx-js.component';
 
 export const routes: Routes = [
   //default route
@@ -108,6 +109,11 @@ export const routes: Routes = [
         component: SignalComponent,
         canActivate: [authGuard]
       },
+      {
+        path: 'rx-js',
+        component: RxJsComponent,
+        canActivate: [authGuard]
+      }
     ],
   },
 ];
