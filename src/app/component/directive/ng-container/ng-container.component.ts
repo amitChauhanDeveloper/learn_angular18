@@ -30,9 +30,6 @@ export class NgContainerComponent {
       (res: any) => {
         this.productList = res;
         this.isLoading = false
-      },
-      (error: any) => {
-        console.error('Error fetching products:', error);
       }
     );
   }

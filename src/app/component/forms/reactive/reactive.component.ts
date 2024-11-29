@@ -27,8 +27,6 @@ export class ReactiveComponent {
 
   onSave(){
     this.fromValue = this.studentForm.value;
-    console.log(this.fromValue);
-    
    
   }
 

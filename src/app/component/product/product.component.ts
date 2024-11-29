@@ -48,7 +48,6 @@ export class ProductComponent implements OnInit {
       },
       (error: any) => {
         this.errorMessage = 'Failed to load products. Please try again later.';
-        console.error('Error fetching products:', error);
         this.isLoading = false;
 
         setTimeout(() => {

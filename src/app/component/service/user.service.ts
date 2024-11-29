@@ -25,7 +25,6 @@ export class UserService {
     return this.http.get(apiUrl).pipe(
       timeout(5000),
       catchError((error) => {
-        console.error('Error fetching products:', error);
         return of(null); // Return empty observable in case of error
       })
     );
@@ -86,7 +85,7 @@ export class UserService {
     } else if (error.status === 404) {
       this.message = 'User not found with email';
     } else {
-      this.message = 'An unknown error occurred. Please try again later.';
+      this.message = 'Gateway down by free render cloud platfrom!';
     }
     return of(null); // Return an empty observable to avoid errors
   }
