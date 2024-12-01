@@ -32,8 +32,10 @@ export class UserService {
 
   // Hard-coded login
   onLogin(callback?: () => void) {
+    const token = '123';
     if (this.userObj.username === 'admin' && this.userObj.password === 'admin') {
-      localStorage.setItem('loginUser', this.userObj.username);
+      localStorage.setItem('token',token)
+      sessionStorage.setItem('loginUserData', JSON.stringify(this.userObj));
       this.router.navigateByUrl('home');
       // Execute the callback if provided
       if (callback) {
@@ -64,7 +66,7 @@ export class UserService {
   private handleLoginResponse(res: any,callback?: () => void) {
      if (res.user && res.user.id) {
       localStorage.setItem('token', res.token);
-      localStorage.setItem('loginUserData', JSON.stringify(res.user));
+      sessionStorage.setItem('loginUserData', JSON.stringify(res.user));
       this.router.navigateByUrl('home');
       // Execute the callback if provided
       if (callback) {
@@ -99,8 +101,10 @@ export class UserService {
       .pipe(
         timeout(5000), // Timeout of 5 seconds
         tap((res: any) => {
+          const token = '123';
           if (res && res.id != null) {
-            localStorage.setItem('userRegisterData', JSON.stringify(res));
+            localStorage.setItem('token',token)
+            sessionStorage.setItem('userRegisterData', JSON.stringify(res));
             this.router.navigateByUrl('home');
             if (callback) {
               callback();

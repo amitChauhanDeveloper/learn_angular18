@@ -24,8 +24,8 @@ export class LayoutsComponent {
   selectRole: string = '';
 
   constructor(private router: Router,private productService: ProductService) {
-  const loggedData = localStorage.getItem('loginUserData');
-  const userRegisterData = localStorage.getItem('userRegisterData');
+  const loggedData = sessionStorage.getItem('loginUserData');
+  const userRegisterData = sessionStorage.getItem('userRegisterData');
 
     if (loggedData != null) {
       this.loggedUserData = JSON.parse(loggedData);
@@ -61,9 +61,8 @@ export class LayoutsComponent {
   }
 
   logout(){
-    localStorage.removeItem('token'); 
-    localStorage.removeItem('loginUserData');
-    localStorage.removeItem('userRegisterData');
+    localStorage.clear();
+    sessionStorage.clear();
     this.router.navigateByUrl('login')
   }
 

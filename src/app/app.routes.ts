@@ -20,6 +20,7 @@ import { SignalComponent } from './component/signal/signal.component';
 import { RegisterComponent } from './component/register/register.component';
 import { ProductComponent } from './component/product/product.component';
 import { RxJsComponent } from './component/rx-js/rx-js.component';
+import { SessionOutComponent } from './component/session-out/session-out.component';
 
 export const routes: Routes = [
   //default route
@@ -36,6 +37,7 @@ export const routes: Routes = [
     path: 'register',
     component: RegisterComponent,
   },
+  { path: 'session-out', component: SessionOutComponent},
   {
     path: '',
     component: LayoutsComponent,
