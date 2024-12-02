@@ -39,7 +39,6 @@ export class SessionTimeoutService {
 
   public logout() {
     localStorage.clear();
-    localStorage.clear();
     this.router.navigate(['/session-out']);
   }
 }
