@@ -17,7 +17,7 @@ export class ProductService {
   constructor(private http: HttpClient) {}
 
   getAllProduct(): Observable<Product[]> {
-    return this.http.get<Product[]>("http://192.168.7.94:8080/api/products");
+    return this.http.get<Product[]>(CONSTANT.API_URL_PRODUCT);
   }
 
   saveNewProduct(product: Product): Observable<Product> {
