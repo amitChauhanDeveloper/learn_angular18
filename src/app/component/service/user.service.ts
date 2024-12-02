@@ -35,7 +35,7 @@ export class UserService {
     const token = '123';
     if (this.userObj.username === 'admin' && this.userObj.password === 'admin') {
       localStorage.setItem('token',token)
-      sessionStorage.setItem('loginUserData', JSON.stringify(this.userObj));
+      localStorage.setItem('loginUserData', JSON.stringify(this.userObj));
       this.router.navigateByUrl('home');
       // Execute the callback if provided
       if (callback) {
@@ -66,7 +66,7 @@ export class UserService {
   private handleLoginResponse(res: any,callback?: () => void) {
      if (res.user && res.user.id) {
       localStorage.setItem('token', res.token);
-      sessionStorage.setItem('loginUserData', JSON.stringify(res.user));
+      localStorage.setItem('loginUserData', JSON.stringify(res.user));
       this.router.navigateByUrl('home');
       // Execute the callback if provided
       if (callback) {
@@ -104,7 +104,7 @@ export class UserService {
           const token = '123';
           if (res && res.id != null) {
             localStorage.setItem('token',token)
-            sessionStorage.setItem('userRegisterData', JSON.stringify(res));
+            localStorage.setItem('userRegisterData', JSON.stringify(res));
             this.router.navigateByUrl('home');
             if (callback) {
               callback();
