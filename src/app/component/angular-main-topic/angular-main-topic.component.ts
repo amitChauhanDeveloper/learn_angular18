@@ -5,10 +5,10 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   template: '<h1 class="primary"> Hello From Admin </h1>',
-  styles: ['.primary{color:green}']
-  // templateUrl: './employee-list.component.html',
-  // styleUrl: './employee-list.component.css'
+  styles: ['.primary{color:green}'],
+  templateUrl: './angular-main-topic.html'
 })
-export class EmployeeListComponent {
+export class AngularMainTopicComponent {
+expression: any;
 
 }

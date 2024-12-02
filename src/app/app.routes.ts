@@ -1,7 +1,5 @@
 import { Routes } from '@angular/router';
-import { AddEmployeeComponent } from './component/add-employee/add-employee.component';
 import { DataBindingComponent } from './component/data-binding/data-binding.component';
-import { EmployeeListComponent } from './component/employee-list/employee-list.component';
 import { StructuralDirComponent } from './component/directive/structural-dir/structural-dir.component';
 import { AttributeDirComponent } from './component/directive/attribute-dir/attribute-dir.component';
 import { ControlComponent } from './component/control/control.component';
@@ -21,6 +19,7 @@ import { RegisterComponent } from './component/register/register.component';
 import { ProductComponent } from './component/product/product.component';
 import { RxJsComponent } from './component/rx-js/rx-js.component';
 import { SessionOutComponent } from './component/session-out/session-out.component';
+import { AngularMainTopicComponent } from './component/angular-main-topic/angular-main-topic.component';
 
 export const routes: Routes = [
   //default route
@@ -114,6 +113,11 @@ export const routes: Routes = [
       {
         path: 'rx-js',
         component: RxJsComponent,
+        canActivate: [authGuard]
+      },
+      {
+        path: 'angular-topic',
+        component: AngularMainTopicComponent,
         canActivate: [authGuard]
       }
     ],
