@@ -29,9 +29,16 @@ export class ProductComponent implements OnInit {
   constructor(public productService: ProductService) {}
 
   productObj = new Product;
+  showCreateForm = false;
+  showEditForm = false;
 
   ngOnInit(): void {
     this.getAllProduct();
+  }
+
+  toggleCreateForm() {
+    this.resetFrom()
+    this.showCreateForm = !this.showCreateForm;
   }
 
   getAllProduct() {
@@ -99,13 +106,28 @@ export class ProductComponent implements OnInit {
   }
 
   onEdit(data: any) {
-    this.productObj = { ...data };
+    if (this.selectedProductId === data.id) {
+      this.selectedProductId = null;
+      this.showEditForm = false
+      this.showCreateForm = false
+    } else {
+      this.productObj = { ...data };
+      this.selectedProductId = data.id;
+      this.showEditForm = true
+      this.showCreateForm = false  
+    }
+  }
+
+  toggleUpdateForm() {
+    debugger
+    this.showEditForm = !this.showEditForm;
   }
 
   onSave() {
     this.productService.saveNewProduct(this.productObj).subscribe(
       (res: any) => {
         if (res.id) {
+          this.showCreateForm = false;
           this.successMessage = 'Product created successfully!';
           this.getAllProduct();
           setTimeout(() => {
@@ -131,6 +153,7 @@ export class ProductComponent implements OnInit {
     this.productService.updateProduct(this.productObj).subscribe(
       (res: any) => {
         if (res.id) {
+          this.showEditForm = false;
           this.successMessage = 'Product updated successfully!';
           this.getAllProduct();
           setTimeout(() => {

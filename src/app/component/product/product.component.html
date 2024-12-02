@@ -23,7 +23,11 @@
     <!-- Product List Section -->
     <div class="col-lg-8 col-md-12 mb-4">
       <div *ngIf="!isLoading && !errorMessage" class="p-2 bg-secondary text-white rounded">
-        <h3>Product List</h3>
+        <h3>Product List 
+          <button class="btn btn-primary float-end" (click)="toggleCreateForm()">
+          {{ showCreateForm ? 'Cancel' : 'Create' }}
+        </button>
+      </h3>
       </div>
       <div class="pt-3">
         <!-- Responsive Table Wrapper -->
@@ -50,7 +54,9 @@
                 <td>{{ item.quantity }}</td>
                 <td>{{ item.price }}</td>
                 <td>
-                  <button class="btn btn-primary btn-sm" (click)="onEdit(item)">Edit</button>
+                  <button class="btn btn-primary btn-sm" (click)="onEdit(item)">
+                    {{ selectedProductId === item.id && showEditForm ? 'Cancel' : 'Edit' }}
+                  </button>
                 </td>
                 <td>
                   <button class="btn btn-danger btn-sm" (click)="showDeleteModal(item.id)">Delete</button>
@@ -90,9 +96,11 @@
     </div>
 
     <!-- Create/Update Product Section -->
-    <div class="col-lg-4 col-md-12">
+    <div class="col-lg-4 col-md-12" *ngIf="showCreateForm || showEditForm ">
       <div class="p-2 bg-secondary text-white rounded">
-        <h3>Create Product</h3>
+        <h3 *ngIf="showCreateForm || showEditForm">
+          {{ showCreateForm ? 'Create Product' : 'Update Product' }}
+        </h3>
       </div>
       <div class="pt-3">
         <form class="row g-3" #form="ngForm">
