@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
-import { catchError, debounce, debounceTime, delay, filter, fromEvent, map, Observable, of, Subscription, switchMap, tap} from 'rxjs';
+import { catchError, debounce, debounceTime, delay, filter, fromEvent, map, Observable, of, shareReplay, Subject, Subscription, switchMap, tap} from 'rxjs';
 import { ajax } from 'rxjs/ajax';
 
 @Component({
@@ -26,7 +26,6 @@ export class RxJsComponent implements OnDestroy {
           filter((e:any)=> e.target.value != ""),
           switchMap((e: any) => {
             return ajax(`https://api.github.com/search/users?q=${e.target.value}`)
-              // return ajax(`http://192.168.7.94:8080/api/products/${e.target.value}`)
           }),
           map((ajaxResponse:any)=>ajaxResponse.response.items)
         )
@@ -37,29 +36,53 @@ export class RxJsComponent implements OnDestroy {
     })
 
     //observable -> who emits the data
-   const pizzaObservable =  new Observable((subscriber) => {
+   const pizzaObservable =  new Observable<{name:string,veg:boolean,size:string}>((subscriber) => {
+    console.log('inside Observable');
+    
       subscriber.next({name: 'Farm House',veg: true, size: 'small'})
-      subscriber.next({name: 'Margherita',veg: true, size: 'large'})
-      subscriber.next({name: 'Barbecue chicken',veg: false, size: 'medium'})
+      // subscriber.next({name: 'Margherita',veg: true, size: 'large'})
+      // subscriber.next({name: 'Barbecue chicken',veg: false, size: 'medium'})
       subscriber.complete()
     }).pipe(
-      tap((pizza:any)=>{
+      tap((pizza)=>{
+        console.log('inside pipe');
+        
         //side effects
         // if (pizza.size == 'large') {
         //   throw new Error('large size pizzasa are not available ')
           
         // }
       }),
-      filter((pizza:any)=> pizza.veg == true),
-      map((pizza:any)=>pizza.name)
+      filter((pizza)=> pizza.veg == true),
+      map((pizza)=>pizza.name),
+      shareReplay()
     )
 
-    //subscriber/observer -> who consumes the emited data
-    // pizzaObservable.subscribe(
-    //   (value)=>console.log(value),
-    //   (err)=>console.log(err.message),
-    //   ()=>console.log('I am done eating pizzasa') 
-    // )
+    // subscriber/observer -> who consumes the emited data
+  //   pizzaObservable.subscribe(
+  //     (value)=>console.log(value),
+  //     (err)=>console.log(err.message),
+  //     ()=>console.log('I am done eating pizzasa') 
+  //   )
+
+  //   pizzaObservable.subscribe(
+  //     (value)=>console.log(value),
+  //     (err)=>console.log(err.message),
+  //     ()=>console.log('I am done eating pizzasa') 
+  //   )
+
+    const subject = new Subject<number>();
+
+    subject.subscribe((value)=>{
+      // console.log('subscribe 1',value);
+    })
+
+    subject.subscribe((value)=>{
+      // console.log('subscribe 2',value);
+    })
+
+    subject.next(1)
+    subject.next(2)
   }
 
   ngOnDestroy(){
