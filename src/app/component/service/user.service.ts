@@ -32,7 +32,7 @@ export class UserService {
 
   // Hard-coded login
   onLogin(callback?: () => void) {
-    const token = '123';
+    const token = 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbWl0aGFyaWR3YXJjaGF1aGFuQGdtYWlsLmNvbSIsImV4cCI6MTczMzIyMDE2NiwiaWF0IjoxNzMzMjAyMTY2fQ.5p81MEZz--WPXH94Dw3eQaQ8w1x25v02AzAkrGdkiyooHUu9jnXQ06eJbpVOvGTiUkQG8r9SGcDRs4oU-oFa7g';
     if (this.userObj.username === 'admin' && this.userObj.password === 'admin') {
       localStorage.setItem('token',token)
       localStorage.setItem('loginUserData', JSON.stringify(this.userObj));
@@ -101,10 +101,9 @@ export class UserService {
       .pipe(
         timeout(5000), // Timeout of 5 seconds
         tap((res: any) => {
-          const token = '123';
-          if (res && res.id != null) {
-            localStorage.setItem('token',token)
-            localStorage.setItem('userRegisterData', JSON.stringify(res));
+          if (res && res.user.id != null) {
+            localStorage.setItem('token', res.token);
+            localStorage.setItem('userRegisterData', JSON.stringify(res.user));
             this.router.navigateByUrl('home');
             if (callback) {
               callback();
