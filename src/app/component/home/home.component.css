@@ -1,0 +1,31 @@
+.clickable-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  cursor: pointer;
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: 2px solid #1b6bd3;
+  border-radius: 8px;
+  margin: 10px 0;
+  transition: all 0.3s ease;
+}
+
+.clickable-link:hover {
+  color: #fff;
+  background-color: #1b6bd3;
+  border-color: #45a049;
+}
+
+.clickable-link:active {
+  transform: scale(0.98);
+}
+
+.clickable-link:focus {
+  outline: 2px solid #4CAF50;
+  outline-offset: 3px;
+}
