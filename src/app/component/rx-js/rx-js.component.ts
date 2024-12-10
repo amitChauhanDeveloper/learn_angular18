@@ -96,6 +96,10 @@ export class RxJsComponent implements OnDestroy {
   goToProfile(login: string): void {
     window.open(`https://github.com/${login}`, '_blank');  // Opens GitHub profile in a new tab
   }
+
+  imageView(imageUrl: string):void{
+    window.open(imageUrl, '_blank');
+  }
   
 
 }

@@ -10,7 +10,7 @@
 <br>
 <div class="card-container">
   <div *ngFor="let u of gitHubUsers" class="user-card">
-    <img [src]="u.avatar_url" alt="User Avatar" class="user-avatar"/>
+    <img [src]="u.avatar_url" alt="User Avatar" class="user-avatar" (click)="imageView(u.avatar_url)"/>
     <h4 (click)="goToProfile(u.login)" class="user-name">{{ u.login }}</h4>
     <button (click)="goToProfile(u.login)" class="profile-button">Go to profile</button>
   </div>
