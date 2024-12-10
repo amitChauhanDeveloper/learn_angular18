@@ -87,9 +87,15 @@ export class RxJsComponent implements OnDestroy {
 
   ngOnDestroy(){
     if (this.typeAheadSub) {
-      console.log(this.typeAheadSub);
+      // console.log(this.typeAheadSub);
       this.typeAheadSub.unsubscribe();
     } 
   }
+
+  // Redirect to user's GitHub profile
+  goToProfile(login: string): void {
+    window.open(`https://github.com/${login}`, '_blank');  // Opens GitHub profile in a new tab
+  }
+  
 
 }
