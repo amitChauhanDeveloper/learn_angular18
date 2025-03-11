@@ -16,11 +16,11 @@ export class LoginComponent {
 
   //get all product api call from callback function because service start karne k liye
 
-  onLogin() {
-    this.userService.onLogin(() => {
-      this.fetchProducts();
-    });
-  }
+  // onLogin() {
+  //   this.userService.onLogin(() => {
+  //     this.fetchProducts();
+  //   });
+  // }
 
   onLoginWithApi() {
     this.userService.onLoginWithApi(this.userService.userObj, () => {
